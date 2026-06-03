@@ -181,7 +181,7 @@ class RCABuilder:
         logs: list[dict[str, Any]],
         traces: list[dict[str, Any]],
     ) -> list[str]:
-        evidence = []
+        evidence: list[str] = []
         evidence.extend(
             f"deploy {deploy.get('version', 'unknown')} at {deploy['timestamp']}"
             for deploy in deploys[:2]

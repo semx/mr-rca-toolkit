@@ -19,3 +19,6 @@ mr-rca = "toolkit.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["toolkit*"]
+
+[tool.mypy]
+strict = true

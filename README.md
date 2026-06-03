@@ -1,5 +1,7 @@
 # Merge Review & RCA Toolkit
 
+[![tests](https://github.com/semx/mr-rca-toolkit/actions/workflows/tests.yml/badge.svg)](https://github.com/semx/mr-rca-toolkit/actions/workflows/tests.yml)
+
 Infrastructure review and incident triage utilities for GitLab-centric
 platform teams.
 
