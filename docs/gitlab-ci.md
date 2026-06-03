@@ -10,7 +10,7 @@ infra-review:
   stage: review
   image: python:3.12-slim
   script:
-    - python -m toolkit.cli review "$MR_MANIFEST" --pretty --fail-on high
+    - python -m toolkit.cli review "$MR_MANIFEST" --pretty --fail-on high > review-report.json
   artifacts:
     when: always
     paths:
