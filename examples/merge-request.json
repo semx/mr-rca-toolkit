@@ -1,0 +1,28 @@
+{
+  "iid": "2417",
+  "title": "Update checkout service deployment",
+  "author": "sergey",
+  "target_environment": "production",
+  "desired_state": {
+    "checkout.replicas": 3,
+    "checkout.image": "registry.local/checkout:2025.10.18"
+  },
+  "observed_state": {
+    "checkout.replicas": 2,
+    "checkout.image": "registry.local/checkout:2025.10.18"
+  },
+  "files": [
+    {
+      "path": "infra/security-group.tf",
+      "content": "resource \"aws_security_group_rule\" \"ssh\" {\n  type = \"ingress\"\n  from_port = 22\n  cidr_blocks = [\"0.0.0.0/0\"]\n}\n"
+    },
+    {
+      "path": "charts/checkout/values.yaml",
+      "content": "replicaCount: 1\nimage:\n  repository: registry.local/checkout\n  tag: latest\nsecurityContext:\n  privileged: true\n"
+    },
+    {
+      "path": "ansible/roles/checkout/tasks/main.yml",
+      "content": "- name: restart checkout\n  shell: systemctl restart checkout\n  ignore_errors: true\n"
+    }
+  ]
+}

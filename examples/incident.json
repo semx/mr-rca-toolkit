@@ -1,0 +1,44 @@
+{
+  "incident_id": "INC-2025-1021",
+  "service": "checkout",
+  "started_at": "2025-10-21T12:15:00Z",
+  "summary": "Checkout error rate increased after deployment",
+  "owners": ["platform", "payments"],
+  "deploys": [
+    {
+      "service": "checkout",
+      "version": "checkout:2025.10.21-7",
+      "timestamp": "2025-10-21T11:52:00Z",
+      "author": "sergey"
+    },
+    {
+      "service": "catalog",
+      "version": "catalog:2025.10.21-2",
+      "timestamp": "2025-10-21T11:50:00Z",
+      "author": "release-bot"
+    }
+  ],
+  "logs": [
+    {
+      "service": "checkout",
+      "timestamp": "2025-10-21T12:13:12Z",
+      "level": "error",
+      "message": "payment migration lookup failed for tenant"
+    },
+    {
+      "service": "checkout",
+      "timestamp": "2025-10-21T12:14:42Z",
+      "level": "warning",
+      "message": "upstream timeout from payment-gateway"
+    }
+  ],
+  "traces": [
+    {
+      "service": "checkout",
+      "timestamp": "2025-10-21T12:14:59Z",
+      "operation": "POST /checkout",
+      "status_code": 502,
+      "latency_ms": 1340
+    }
+  ]
+}
