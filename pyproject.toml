@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mr-rca-toolkit"
+version = "0.1.0"
+description = "Infrastructure merge request review and RCA utilities"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "Sergey Sannikov" }
+]
+license = "MIT"
+dependencies = []
+
+[project.scripts]
+mr-rca = "toolkit.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["toolkit*"]
